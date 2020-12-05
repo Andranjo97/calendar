@@ -1,56 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import DateUtils from './core/utils/DateUtils.js';
 import './App.css';
+import DateCell from "./features/calendar/presentation/components/DateCell/DateCell";
 
 function App() {
+    let currentMoth = 11;
+    let currentYear = 2020;
+    let date = 1;
+    let myArray = [1,2,3,4,5,6];
+    let anotherArray = [1,2,3,4,5,6,7];
+    let firstDay = DateUtils.getFirstDayOfMonthInYear(currentYear, currentMoth);
+    let numberOfDays = DateUtils.getDaysOfMonthInYear(currentYear, currentMoth);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+          {myArray.map((row, i) => <div>{
+              anotherArray.map((square, j) => {
+                  if(i === 0 && j <= firstDay) {
+                      return <DateCell>{null}</DateCell>;
+                  }
+                  else if (date > numberOfDays) {
+                      return <DateCell>{null}</DateCell>;
+                  }
+                  else {
+                    return <DateCell>{date++}</DateCell>;
+                  }
+              })}</div>)}
     </div>
   );
 }
