@@ -1,0 +1,20 @@
+@import "../../../../../App.scss";
+
+.dateHeader {
+  display: inline-block;
+  @media (min-width: $min-screen-size) and (max-width: $max-screen-size - 1) {
+    width: $min-cell-width;
+  }
+  @media (min-width: $max-screen-size) {
+    width: $max-cell-width;
+  }
+  border: 1px solid grey;
+  height: 4%;
+  color: white;
+  background: $corn-flower-blue;
+  font-weight: bold;
+
+  > span {
+    vertical-align: -webkit-baseline-middle;
+  }
+}

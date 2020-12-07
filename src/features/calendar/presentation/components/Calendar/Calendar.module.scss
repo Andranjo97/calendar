@@ -1,0 +1,17 @@
+@import "../../../../../App.scss";
+
+.calendarRow {
+  @media (min-width: $max-screen-size) {
+    height: 15%;
+  }
+  @media (min-width: $min-screen-size) and (max-width: $max-screen-size - 1) {
+    height: 10%;
+  }
+  align-content: start;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

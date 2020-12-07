@@ -1,20 +1,40 @@
+@import "../../../../../App.scss";
+
 .dateCell {
   display: inline-block;
-  @media (min-width: 200px) and (max-width: 699px) {
-    width: 10%;
+  @media (min-width: $min-screen-size) and (max-width: $max-screen-size - 1) {
+    width: $min-cell-width;
   }
-  @media (min-width: 700px) {
-    width: 14%;
+  @media (min-width: $max-screen-size) {
+    width: $max-cell-width;
   }
-  border: 1px solid black;
-  text-align: start;
+  border: 1px solid grey;
   height: 100%;
   cursor: pointer;
+  font-weight: bold;
+
+  > div {
+    padding: 5px;
+  }
+
+  &:hover {
+    background: #cccccc;
+  }
 }
 
 .disabledDateCell {
   @extend .dateCell;
-  background-color: grey;
-  color: green;
+  color: grey;
   cursor: default;
+  vertical-align: top;
+
+  &:hover {
+    background: white;
+  }
+}
+
+.weekendDateCell {
+  @extend .dateCell;
+  background: $mercury-blue;
+  color: $corn-flower-blue;
 }

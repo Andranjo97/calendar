@@ -2,14 +2,12 @@
   text-align: center;
   width: 100%;
   height: 100%;
-
-  .calendarRow {
-    @media (min-width: 700px) {
-      height: 15%;
-    }
-    @media (min-width: 200px) and (max-width: 699px) {
-      height: 10%;
-    }
-    align-content: start;
-  }
 }
+
+$min-screen-size: 200px;
+$max-screen-size: 700px;
+
+$min-cell-width: 10%;
+$max-cell-width: 14%;
+$corn-flower-blue: #6495ED;
+$mercury-blue: #e6e6e6;

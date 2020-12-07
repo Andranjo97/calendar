@@ -1,0 +1,31 @@
+{
+  "coord": { "lon": -78.52, "lat": -0.23 },
+  "weather": [
+    { "id": 501, "main": "Rain", "description": "moderate rain", "icon": "10n" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 288.15,
+    "feels_like": 285.88,
+    "temp_min": 288.15,
+    "temp_max": 288.15,
+    "pressure": 1023,
+    "humidity": 82
+  },
+  "visibility": 10000,
+  "wind": { "speed": 4.1, "deg": 30 },
+  "rain": { "1h": 1.3 },
+  "clouds": { "all": 40 },
+  "dt": 1607297205,
+  "sys": {
+    "type": 1,
+    "id": 8555,
+    "country": "EC",
+    "sunrise": 1607252493,
+    "sunset": 1607296170
+  },
+  "timezone": -18000,
+  "id": 3652462,
+  "name": "Quito",
+  "cod": 200
+}
