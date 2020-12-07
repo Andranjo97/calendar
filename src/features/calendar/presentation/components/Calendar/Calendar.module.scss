@@ -2,16 +2,22 @@
 
 .calendarRow {
   @media (min-width: $max-screen-size) {
-    height: 15%;
+    height: $max-cell-width;
   }
   @media (min-width: $min-screen-size) and (max-width: $max-screen-size - 1) {
-    height: 10%;
+    height: $min-cell-width;
   }
   align-content: start;
 }
 
-.calendarHeader {
+.calendarMonthYear {
+  font-size: 2em;
+  font-weight: bold;
+  color: grey;
+}
+
+.calendarButtons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }

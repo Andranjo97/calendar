@@ -5,21 +5,24 @@ import GetWeatherForecast from "./features/weather/domain/useCases/GetWeatherFor
 import serviceLocator from "di4js";
 
 serviceLocator
-    .register('WeatherRemoteDataSource')
-    .as(WeatherRemoteDataSource)
-    .withConstructor()
-    .param().val(axios)
+  .register("WeatherRemoteDataSource")
+  .as(WeatherRemoteDataSource)
+  .withConstructor()
+  .param()
+  .val(axios)
 
-    .register('WeatherRepository')
-    .as(WeatherRepository)
-    .withConstructor()
-    .param().ref('WeatherRemoteDataSource')
+  .register("WeatherRepository")
+  .as(WeatherRepository)
+  .withConstructor()
+  .param()
+  .ref("WeatherRemoteDataSource")
 
-    .register('getWeatherForecast')
-    .as(GetWeatherForecast)
-    .withConstructor()
-    .param().ref('WeatherRepository');
+  .register("getWeatherForecast")
+  .as(GetWeatherForecast)
+  .withConstructor()
+  .param()
+  .ref("WeatherRepository");
 
-const getWeatherForecast = serviceLocator.resolve('getWeatherForecast');
+const getWeatherForecast = serviceLocator.resolve("getWeatherForecast");
 
 export { getWeatherForecast };
