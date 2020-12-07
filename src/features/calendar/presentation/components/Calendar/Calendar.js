@@ -1,7 +1,5 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import DateUtils from "../../../../../core/utils/DateUtils";
-import DateCell from "../DateCell/DateCell";
+import React, { useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux";
 import styles from "./Calendar.module.scss";
 import {
   initCalendar,
@@ -11,37 +9,17 @@ import {
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import IconButton from "@material-ui/core/IconButton";
-import DateHeader from "../DateHeader/DateHeader";
-
-const monthNames = {
-  0: 'January',
-  1: 'February',
-  2: 'March',
-  3: 'April',
-  4: 'May',
-  5: 'June',
-  6: 'July',
-  7: 'August',
-  8: 'September',
-  9: 'October',
-  10: 'November',
-  11: 'December',
-};
+import CalendarBody from "./CalendarBody";
+import {monthNames} from "../../../../../core/constants/dateConstants";
 
 function Calendar() {
   const dispatch = useDispatch();
-  dispatch(initCalendar());
-
   let currentMonth = useSelector((state) => state.calendar.currentMonth);
   let currentYear = useSelector((state) => state.calendar.currentYear);
-  let date = 1;
-  let myArray = [1, 2, 3, 4, 5];
-  let weekDays = [1, 2, 3, 4, 5, 6, 7];
-  let firstDay = DateUtils.getFirstDayOfMonthInYear(
-    currentYear,
-    currentMonth
-  ).getDay();
-  let numberOfDays = DateUtils.getDaysOfMonthInYear(currentYear, currentMonth);
+
+  useEffect(() => {
+    dispatch(initCalendar());
+  }, []);
 
   return (
     <>
@@ -58,26 +36,7 @@ function Calendar() {
         </IconButton>
         </div>
       </div>
-      <>
-        {weekDays.map((square, j) => (
-          <DateHeader date={j} />
-        ))}
-        {myArray.map((row, i) => (
-          <div className={styles.calendarRow}>
-            {weekDays.map((square, j) => {
-              if (i === 0 && j < firstDay) {
-                return <DateCell isNotInMoth />;
-              } else if (date > numberOfDays) {
-                return <DateCell isNotInMoth />;
-              } else {
-                return (
-                  <DateCell isWeekend={j === 0 || j === 6}>{date++}</DateCell>
-                );
-              }
-            })}
-          </div>
-        ))}
-      </>
+        <CalendarBody/>
     </>
   );
 }

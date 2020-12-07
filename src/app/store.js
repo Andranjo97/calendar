@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+import reminderReducer from "../features/remiders/presentation/reducers/reminderSlice";
 import calendarReducer from "../features/calendar/presentation/reducers/calendarSlice";
 import weatherReducer from "../features/weather/presentation/reducers/weatherSlice";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    reminder: reminderReducer,
     calendar: calendarReducer,
     weather: weatherReducer,
   },

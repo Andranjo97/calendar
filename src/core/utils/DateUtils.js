@@ -9,20 +9,12 @@ const DateUtils = {
     getDaysOfMonthInYear: (year, month) => MAX_NUMBER_OF_DAYS - new Date(year, month, MAX_NUMBER_OF_DAYS).getDate(),
 
     getWeeksInMonthInYear: function (year, month) {
-        let firstDay = this.getFirstDayOfMonthInYear(year, month);
-        let totalDays = this.getDaysOfMonthInYear(year, month);
-        let start = 1;
-        let end = 7 - firstDay.getDay();
-        let weeks = 0;
+        let firstOfMonth = this.getFirstDayOfMonthInYear(year, month);
+        let lastOfMonth = this.getLastDayOfMonthInYear(year, month);
 
-        while (start < end) {
-            weeks++;
-            start = end + 1;
-            end = end + 7;
-            if(end > totalDays) end = totalDays;
-        }
+        let used = firstOfMonth.getDay() + lastOfMonth.getDate();
 
-        return weeks;
+        return Math.ceil( used / 7);
     },
 };
 

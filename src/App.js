@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./App.scss";
 import Calendar from "./features/calendar/presentation/components/Calendar/Calendar";
@@ -7,7 +7,10 @@ import {setCurrentWeatherAsync} from "./features/weather/presentation/reducers/w
 
 function App() {
     const dispatch = useDispatch();
-    dispatch(setCurrentWeatherAsync());
+
+    useEffect(() => {
+        dispatch(setCurrentWeatherAsync());
+    }, []);
 
   return (
     <div className="App">
