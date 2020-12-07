@@ -27,7 +27,8 @@ export const { setCurrentWeather } = weatherSlice.actions;
 export const setCurrentWeatherAsync = (city = "quito") => (dispatch) => {
   getWeatherForecast
     .init(city)
-    .then((response) => dispatch(setCurrentWeather(response)));
+    .then((response) => dispatch(setCurrentWeather(response)))
+    .catch((error) => dispatch(setCurrentWeather({})));
 };
 
 export default weatherSlice.reducer;
