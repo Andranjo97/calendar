@@ -4,8 +4,8 @@ import styles from "./DateCell.module.scss";
 import Grid from "@material-ui/core/Grid";
 import ReminderDialog from "../../../../remiders/presentation/components/ReminderDialog/ReminderDialog";
 import ReminderDateItems from "../../../../remiders/presentation/components/ReminderDateItems/ReminderDateItems";
-import {useDispatch} from "react-redux";
-import {clearWeather} from "../../../../weather/presentation/reducers/weatherSlice";
+import { useDispatch } from "react-redux";
+import { clearWeather } from "../../../../weather/presentation/reducers/weatherSlice";
 
 const DateCell = ({ date, isNotInMoth, isWeekend }) => {
   const dispatch = useDispatch();

@@ -21,11 +21,11 @@ export const weatherSlice = createSlice({
       state.icon = icon;
       state.city = city;
     },
-    clearWeather: state => {
+    clearWeather: (state) => {
       Object.entries(state).forEach(([stateKey]) => {
         state[stateKey] = initialState[stateKey];
       });
-    }
+    },
   },
 });
 

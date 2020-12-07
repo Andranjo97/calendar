@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CancelButton from "@material-ui/icons/Close";
 import AcceptButton from "@material-ui/icons/Done";
 import { cities } from "../../../../../core/constants/cities";
-import { setCurrentWeatherAsync} from "../../../../weather/presentation/reducers/weatherSlice";
+import { setCurrentWeatherAsync } from "../../../../weather/presentation/reducers/weatherSlice";
 import { useDispatch } from "react-redux";
 import DescriptionTextField from "./DescriptionTextField";
 import TimeTextField from "./TimeTextField";
