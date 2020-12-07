@@ -5,6 +5,7 @@ import ReminderItem from "./ReminderItem";
 
 const ReminderList = ({ dateId }) => {
   const reminders = useSelector((state) => state.reminder[dateId] || []);
+
   return (
     <div style={{ maxHeight: "20em" }}>
       {reminders.map((reminder) => (

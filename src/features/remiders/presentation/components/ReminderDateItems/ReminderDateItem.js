@@ -10,7 +10,7 @@ const ReminderDateItem = ({ reminder }) => {
         className={styles.reminderDateItem}
         style={{ background: reminder.color }}
       >
-        {reminder.description}
+        {reminder.time} - {reminder.description}
       </div>
     </Grid>
   );
@@ -20,6 +20,7 @@ ReminderDateItem.propTypes = {
   reminder: PropTypes.shape({
     description: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
   }),
 };
 

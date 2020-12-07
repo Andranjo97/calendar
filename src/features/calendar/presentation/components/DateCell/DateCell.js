@@ -4,9 +4,17 @@ import styles from "./DateCell.module.scss";
 import Grid from "@material-ui/core/Grid";
 import ReminderDialog from "../../../../remiders/presentation/components/ReminderDialog/ReminderDialog";
 import ReminderDateItems from "../../../../remiders/presentation/components/ReminderDateItems/ReminderDateItems";
+import {useDispatch} from "react-redux";
+import {clearWeather} from "../../../../weather/presentation/reducers/weatherSlice";
 
 const DateCell = ({ date, isNotInMoth, isWeekend }) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+
+  const handleOnClose = () => {
+    setOpen(false);
+    dispatch(clearWeather());
+  };
 
   return (
     <>
@@ -30,7 +38,7 @@ const DateCell = ({ date, isNotInMoth, isWeekend }) => {
           <ReminderDateItems dateId={date.id} />
         </Grid>
       </div>
-      <ReminderDialog date={date} open={open} onClose={() => setOpen(false)} />
+      <ReminderDialog date={date} open={open} onClose={handleOnClose} />
     </>
   );
 };

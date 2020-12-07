@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,scss}\""
   },
   "eslintConfig": {
     "extends": "react-app"

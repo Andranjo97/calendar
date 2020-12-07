@@ -5,7 +5,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import { createReminder } from "../../reducers/reminderSlice";
 import ReminderList from "../ReminderList/ReminderList";
-import ReminderForm from "../ReminderForm";
+import ReminderForm from "../ReminderForm/ReminderForm";
 import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import WeatherDisplay from "../../../../weather/presentation/components/WeatherDisplay/WeatherDisplay";

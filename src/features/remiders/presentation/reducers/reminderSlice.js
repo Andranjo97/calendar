@@ -1,5 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const sortReminders = (reminders, dateId) => {
+  return reminders.slice().sort((firstReminder, secondReminder) => {
+    const firstDate = new Date(`${dateId} ${firstReminder.time}`);
+    const secondDate = new Date(`${dateId} ${secondReminder.time}`);
+
+    return firstDate.getTime() - secondDate.getTime();
+  });
+};
+
 export const initialState = {
   createdRemindersCount: 0,
 };
@@ -17,9 +26,10 @@ export const reminderSlice = createSlice({
           { ...reminder, id: state.createdRemindersCount },
         ];
       } else {
-        state[dateId] = [reminder];
+        state[dateId] = [{ ...reminder, id: state.createdRemindersCount }];
       }
 
+      state[dateId] = sortReminders(state[dateId], dateId);
       state.createdRemindersCount += 1;
     },
     editReminder: (state, action) => {
@@ -30,6 +40,7 @@ export const reminderSlice = createSlice({
       let editIndex = state[dateId].indexOf(editedReminder);
 
       state[dateId][editIndex] = reminder;
+      state[dateId] = sortReminders(state[dateId], dateId);
     },
     removeReminder: (state, action) => {
       const { dateId, reminderId } = action.payload;
@@ -38,6 +49,7 @@ export const reminderSlice = createSlice({
       );
       let removedIndex = state[dateId].indexOf(removedReminder);
       state[dateId].splice(removedIndex, 1);
+      state[dateId] = sortReminders(state[dateId], dateId);
     },
     clearReminders: (state) => {
       Object.entries(state).forEach(([stateKey]) => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import ReminderForm from "../ReminderForm";
+import ReminderForm from "../ReminderForm/ReminderForm";
 import { useDispatch } from "react-redux";
 import { editReminder } from "../../reducers/reminderSlice";
 import ReminderDisplay from "./ReminderDisplay";
@@ -43,6 +43,7 @@ ReminderItem.propTypes = {
     description: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
   }).isRequired,
   dateId: PropTypes.string.isRequired,
 };

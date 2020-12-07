@@ -12,7 +12,9 @@ const ReminderDisplay = ({ reminder, onEdit, dateId }) => {
         <ColorContainer color={reminder.color} />
       </Grid>
       <Grid item xs={6} style={{ alignSelf: "center" }}>
-        <span>{reminder.description}</span>
+        <span>
+          {reminder.time} - {reminder.description}
+        </span>
       </Grid>
       <Grid item container xs={3}>
         <Grid item xs={6}>
@@ -35,6 +37,7 @@ ReminderDisplay.propTypes = {
     description: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
   }).isRequired,
   dateId: PropTypes.string.isRequired,
   onEdit: PropTypes.func.isRequired,

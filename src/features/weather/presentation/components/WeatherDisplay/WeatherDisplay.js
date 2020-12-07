@@ -6,12 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { setCurrentWeatherAsync } from "../../reducers/weatherSlice";
 
 const WeatherDisplay = () => {
-  const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather);
-
-  useEffect(() => {
-    dispatch(setCurrentWeatherAsync());
-  }, [dispatch]);
 
   return (
     <>
@@ -32,6 +27,9 @@ const WeatherDisplay = () => {
           >
             <Grid item xs={12}>
               <Typography variant="h6">Current weather</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography>{weather.city}</Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography>{weather.main}</Typography>
